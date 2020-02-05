@@ -3,9 +3,9 @@ require 'config.php';
 
 function login(){
     global $db;
-    $user = $_POST['email'];
+    $user = $_POST['user'];
     $pass = md5($_POST['password']);
-    $sql = "select from pengguna where email=$user OR username=$user";
+    $sql = "select email,username from pengguna where email=$user OR username=$user";
     $stmt = $db->query($sql);
     if($stmt->fetch(PDO::FETCH_ASSOC)){
         $_SESSION['username'] = $user;

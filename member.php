@@ -1,5 +1,4 @@
 <?php
-session_start();
 require 'application/config.php';
 require 'application/function.php';
 
@@ -96,16 +95,18 @@ if(isset($_POST['daftar'])){
     echo '<script>
             alert("Pendaftaran Perhasil");
           </script>';
+    echo '<meta http-equiv="refresh"
+          content="0;url=http://localhost/ProjectGts/member.php"/>';
  }else{
     echo '<script>
             alert("Username/E-mail sudah ada");
           </script>';
  }
-}else if(isset($_POST['Login'])){
-    login($_POST);
 }
 
-
+if(isset($_POST['Login'])){
+    login($_POST);
+   }
 ?>
 
         <div class="container p-5">
@@ -127,7 +128,7 @@ if(isset($_POST['daftar'])){
                     </div>
             
                         <div class="float-left">
-                            <button type="button" class="btn btn-sm light-blue darken-3" name="Login" style="color:white; font-size:13px; letter-spacing:1px;">Login</button>
+                            <button type="submit" class="btn btn-sm light-blue darken-3" name="Login" style="color:white; font-size:13px; letter-spacing:1px;">Login</button>
                         </div>
                         </form>
                         
@@ -144,7 +145,7 @@ if(isset($_POST['daftar'])){
                     <div class="container">
                     <div class="ml-n3">
 
-                    <form class="mt-4" method="post">
+                    <form action="#" class="mt-4" method="post">
                     <div class="form-group">
                         <label>Username</label>
                             <input type="text" class="form-control w-75"  placeholder="Username" name="user" required>
@@ -169,12 +170,11 @@ if(isset($_POST['daftar'])){
                     </div>
 
                     <div class="float-left">
-                            <button type="button" class="btn btn-sm light-blue darken-3" name="daftar" style="color:white; font-size:13px; letter-spacing:1px;">Daftar</button>
+                            <button type="submit" class="btn btn-sm light-blue darken-3" name="daftar" style="color:white; font-size:13px; letter-spacing:1px;">Daftar</button>
                         </div>
-
+                    </form>
                         
                 </div>
-</form>
              </div>
 
         </div>
